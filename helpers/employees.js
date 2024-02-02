@@ -1,57 +1,28 @@
-const db = require('../config/connection');
+const connection = require('../config/connection');
 const inquirer = require('inquirer');
-const {endQuestions, employeeQuestions } = require('./questions');
-const {init} = require('../server');
+const { employeeQuestions } = require('./questions');
 
-// Add await //
-const viewEmployees = () => {
-    const request = "SELECT * FROM employees";
-    return db.query(request, function (err, res) {
-        if (err) {
-            console.log('Error getting employees', err);
-        return;
-    }     
-        console.log('All Employees');
-        console.table(res);
-        // inquirer.prompt(endQuestions)
-        //     .then((answer) => {
-        //         switch (answer.choice) {
-        //             case 'Main Menu':
-        //                 init();
-        //                 break;
-        //             case 'Quit':
-        //                 exit();
-        //         }
-        //     }
-        //     )
-    })
-}
+const viewEmployees = async () => {
+    try {
+        const request = "SELECT * FROM employees";
+        const results = await connection.query(request);
+        console.log('All employees');
+        console.table(results);
+    } catch (err) {
+        console.log('Error getting employees', err);
+    }
+};
 
-// const newEmployee = () => {
-//     inquirer.prompt(employeeQuestions)
-//     .then(function(answer){
-//         db.query('INSERT INTO employees(first_name, last_name, roles_id, manager_id) VALUES (?,?,?,?)',
-//         [answer.firstName, answer.lastName, answer.employeeID, answer.managerID], function (err, answer) {
-//             if (err) {
-//                 console.log('Error adding new employee', err);
-//             return;
-//         }
-//         console.table(answer);
-//         inquirer.prompt(endQuestions)
-//             .then((answer) => {
-//                 switch (answer.choice) {
-//                     case 'Main Menu':
-//                         init();
-//                         break;
-//                     case 'Quit':
-//                         exit();
-//                 }
-//             }
-//         )
-//     })
-// })
-// };
+const newEmployee = async () => {
+    try {
+        const answer = await inquirer.prompt(employeeQuestions);
+        const results = await connection.query('INSERT INTO employees(first_name, last_name, roles_id, manager_id) VALUES (?,?,?,?)',
+            [answer.firstName, answer.lastName, answer.employeeID, answer.managerID]);
+        console.log('New employee added');
+        console.table(results);
+    } catch (err) {
+        console.error('Error adding new employee', err);
+    }
+};
 
-
-
-module.exports = { viewEmployees, newEmployee}
+module.exports = { viewEmployees, newEmployee }

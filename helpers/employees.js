@@ -8,6 +8,7 @@ const viewEmployees = async () => {
         const results = await connection.query(request);
         console.log('All employees');
         console.table(results);
+        return results;
     } catch (err) {
         console.log('Error getting employees', err);
     }

@@ -1,30 +1,9 @@
-USE company_db;
-
 INSERT INTO departments(department_name)
 VALUES
 ('Patriots'),
 ('Bills'),
 ('Dolphins'),
 ('Jets');
-
-INSERT INTO employees(first_name, last_name, roles_id, manager_id)
-VALUES
-('Tom', 'Brady', 1, 1),
-('Peyton', 'Manning', 2, 2),
-('Patrick', 'Mahomes', 3, 3),
-('Joe', 'Montana', 4, 4),
-('Rob', 'Gronkowski', 5, 1),
-('Dallas', 'Clark', 6, 2),
-('Travis', 'Kelce', 7, 3),
-('Brent', 'Jones', 8, 4),
-('Julian', 'Edelman', 9, 1),
-('Marvin', 'Harrison', 10, 2),
-('Tyreek', 'Hill', 11, 3),
-('Jerry', 'Rice', 12, 4),
-('Corey', 'Dillon', 13, 1),
-('Edgerrin', 'James', 14, 2),
-('Kareem', 'Hunt', 15, 3),
-('Roger', 'Craig', 16, 4);
 
 INSERT INTO roles(role_name, role_salary, department_id)
 VALUES
@@ -44,3 +23,22 @@ VALUES
 ('Running Back', 10000000, 2),
 ('Running Back', 10000000, 3),
 ('Running Back', 10000000, 4);
+
+INSERT INTO employees(first_name, last_name, roles_id, manager_id)
+VALUES
+('Tom', 'Brady', 1, NULL),
+('Peyton', 'Manning', 2, NULL),
+('Patrick', 'Mahomes', 3, NULL),
+('Joe', 'Montana', 4, NULL),
+('Rob', 'Gronkowski', 5, 1),
+('Dallas', 'Clark', 6, 2),
+('Travis', 'Kelce', 7, 3),
+('Brent', 'Jones', 8, 4),
+('Julian', 'Edelman', 9, 1),
+('Marvin', 'Harrison', 10, 2),
+('Tyreek', 'Hill', 11, 3),
+('Jerry', 'Rice', 12, 4),
+('Corey', 'Dillon', 13, 1),
+('Edgerrin', 'James', 14, 2),
+('Kareem', 'Hunt', 15, 3),
+('Roger', 'Craig', 16, 4);

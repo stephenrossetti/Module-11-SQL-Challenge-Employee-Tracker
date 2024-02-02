@@ -10,6 +10,7 @@ const initialQuestions = [
             'Add New Employee',
             'Add New Department',
             'Add New Role',
+            'Update An Employees Role',
             'Exit'
         ]
     }
@@ -40,8 +41,8 @@ const employeeQuestions = [
     },
     {
         type: 'input',
-        name: 'employeeID',
-        message: 'Enter ID of new employee:',
+        name: 'roleID',
+        message: 'Enter ID of role:',
     },
     {
         type: 'input',
@@ -63,8 +64,8 @@ const roleQuestions = [
     },
     {
         type: 'input',
-        name: 'roleID',
-        message: 'Enter ID of new role:',
+        name: 'departmentID',
+        message: 'Enter ID of department:',
     }
 ];
 
@@ -73,12 +74,20 @@ const departmentQuestions = [
         type: 'input',
         name: 'departmentName',
         message: 'Enter name of new department:',
-    },
-    {
-        type: 'input',
-        name: 'departmentID',
-        message: 'Enter ID of new department:',
     }
 ];
 
-module.exports = { initialQuestions, endQuestions, employeeQuestions, roleQuestions, departmentQuestions }
+const updateQuestions = [
+    {
+        type: 'input',
+        name: 'updateEmployee',
+        message: 'Enter ID employee:',
+    },
+    {
+        type: 'input',
+        name: 'updateRole',
+        message: 'Enter new role ID:',
+    }
+];
+
+module.exports = { initialQuestions, endQuestions, employeeQuestions, roleQuestions, departmentQuestions, updateQuestions }

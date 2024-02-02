@@ -1,11 +1,11 @@
-INSERT INTO departments(department_name)
+INSERT INTO departments (department_name)
 VALUES
 ('Patriots'),
 ('Bills'),
 ('Dolphins'),
 ('Jets');
 
-INSERT INTO roles(role_name, role_salary, department_id)
+INSERT INTO roles (role_name, role_salary, department_id)
 VALUES
 ('Quarterback', 30000000, 1),
 ('Quarterback', 30000000, 2),
@@ -24,7 +24,7 @@ VALUES
 ('Running Back', 10000000, 3),
 ('Running Back', 10000000, 4);
 
-INSERT INTO employees(first_name, last_name, roles_id, manager_id)
+INSERT INTO employees (first_name, last_name, roles_id, manager_id)
 VALUES
 ('Tom', 'Brady', 1, NULL),
 ('Peyton', 'Manning', 2, NULL),

@@ -9,6 +9,7 @@ let init = async () => {
     switch (answer.choice) {
         case 'View Employees':
             await viewEmployees();
+            init();
             break;
         case 'View Departments':
             await viewDepartments();

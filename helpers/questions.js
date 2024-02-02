@@ -5,6 +5,8 @@ const initialQuestions = [
         message: 'Select an option below:',
         choices: [
             'View Employees',
+            'View Employees by Department',
+            'View Employees by Manager',
             'View Departments',
             'View Roles',
             'Add New Employee',
@@ -51,24 +53,6 @@ const employeeQuestions = [
     }
 ];
 
-const roleQuestions = [
-    {
-        type: 'input',
-        name: 'roleName',
-        message: 'Enter title of new role:',
-    },
-    {
-        type: 'input',
-        name: 'roleSalary',
-        message: 'Enter salary of new role:',
-    },
-    {
-        type: 'input',
-        name: 'departmentID',
-        message: 'Enter ID of department:',
-    }
-];
-
 const departmentQuestions = [
     {
         type: 'input',
@@ -90,4 +74,4 @@ const updateQuestions = [
     }
 ];
 
-module.exports = { initialQuestions, endQuestions, employeeQuestions, roleQuestions, departmentQuestions, updateQuestions }
+module.exports = { initialQuestions, endQuestions, employeeQuestions, departmentQuestions, updateQuestions }

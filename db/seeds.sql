@@ -22,7 +22,7 @@ VALUES
 ('Patriots RB', 10000000, 1),
 ('Bills RB', 10000000, 2),
 ('Dolphins RB', 10000000, 3),
-('Jetss RB', 10000000, 4);
+('Jets RB', 10000000, 4);
 
 INSERT INTO employees (first_name, last_name, roles_id, manager_id)
 VALUES

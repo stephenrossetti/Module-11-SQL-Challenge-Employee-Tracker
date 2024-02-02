@@ -11,6 +11,7 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
+        "cfonts": "^3.2.0",
         "dotenv": "^16.4.1",
         "express": "^4.17.1",
         "inquirer": "^8.2.6",

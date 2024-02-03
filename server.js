@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const mySQL = require('mysql2');
 require('dotenv').config();
 const cfonts = require('cfonts');
-const { initialQuestions} = require('./helpers/questions');
+const { initialQuestions } = require('./helpers/questions');
 
 const db = mySQL.createConnection({
     host: process.env.DB_HOST,
@@ -267,36 +267,86 @@ function addNewRole() {
 
 // TODO
 const addNewEmployee = () => {
-    const answerNE = inquirer.prompt(employeeQuestions);
-    db.query('INSERT INTO employees (first_name, last_name, roles_id, manager_id) VALUES (?,?,?,?)',
-        [answerNE.firstName, answerNE.lastName, answerNE.roleID, answerNE.managerID], (err, result) => {
-            if (err) throw err
-            console.log('New employee added!')
-            console.table(result)
-            init();
+    let newEmployee;
+    const rolesQuery = `SELECT roles.id, roles.title FROM roles WHERE title NOT LIKE '%QB%';`;
+    Promise.resolve()
+        .then(() => {
+            return new Promise((resolve, reject) => {
+                db.query(rolesQuery, (err, result) => {
+                    if (err) reject(err);
+                    else resolve(result);
+                });
+            });
+        })
+        .then((rolesRes) => {
+            const roles = rolesRes.map((roles) => `Role title: ${roles.title}, Role ID: ${roles.id}`
+            );
+            return inquirer.prompt([
+                {
+                    name: "first_name",
+                    type: "input",
+                    message: "Enter first name of employee:",
+                },
+                {
+                    name: "last_name",
+                    type: "input",
+                    message: "Enter last name of employee:",
+                },
+                {
+                    name: "roles",
+                    type: "list",
+                    message: "Enter the role of the employee:",
+                    choices: roles,
+                },
+            ]);
+        })
+        .then((answer) => {
+            newEmployee = answer;
+            const managerQuery = `SELECT 
+            manager.id AS manager_id,
+            CONCAT(manager.first_name, ' ', manager.last_name) AS manager_name
+            FROM employees
+            LEFT JOIN roles ON employees.roles_id = roles.id
+            LEFT JOIN employees AS manager ON manager.id = employees.manager_id 
+            WHERE manager.id IS NOT NULL
+            GROUP BY manager_id;`;
+            return new Promise((resolve, reject) => {
+                db.query(managerQuery, (err, result) => {
+                    if (err) reject(err);
+                    else resolve(result);
+                });
+            });
+        })
+        .then((managerRes) => {
+            const managers = managerRes.map((manager) => `${manager.manager_name} ID:${manager.manager_id}`);
+            return inquirer.prompt([
+                {
+                    name: "manager",
+                    type: "list",
+                    message: "Which manager is the employee under?",
+                    choices: [...managers, "None"],
+                },
+            ]);
+        })
+        .then((answer) => {
+            const employeeQuery = `INSERT INTO employees
+            (first_name, last_name, roles_id, manager_id) 
+            VALUES (?, ?, ?, ?)`;
+            db.query(employeeQuery,
+                [
+                    newEmployee.first_name,
+                    newEmployee.last_name,
+                    newEmployee.roles.split("ID: ")[1],
+                    answer.manager.split("ID:")[1],
+                ],
+                (err, result) => {
+                    if (err) throw err;
+                    console.log(
+                        `Added employee to the database`
+                    );
+                    viewEmployees();
+                }
+            );
         });
-};
 
-
-const employeeQuestions = [
-    {
-        type: 'input',
-        name: 'firstName',
-        message: 'Enter first name of new employee:',
-    },
-    {
-        type: 'input',
-        name: 'lastName',
-        message: 'Enter last name of new employee:',
-    },
-    {
-        type: 'input',
-        name: 'roleID',
-        message: 'Enter ID of role:',
-    },
-    {
-        type: 'input',
-        name: 'managerID',
-        message: 'Enter ID of manager:',
-    }
-];
+}

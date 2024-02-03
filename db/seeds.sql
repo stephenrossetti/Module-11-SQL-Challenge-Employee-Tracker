@@ -1,28 +1,28 @@
 INSERT INTO departments (department_name)
 VALUES
 ('Patriots'),
-('Bills'),
-('Dolphins'),
-('Jets');
+('Colts'),
+('Chiefs'),
+('49ers');
 
 INSERT INTO roles (role_name, role_salary, department_id)
 VALUES
 ('Patriots QB', 30000000, 1),
-('Bills QB', 30000000, 2),
-('Dolphins QB', 30000000, 3),
-('Jets QB', 30000000, 4),
+('Colts QB', 30000000, 2),
+('Chiefs QB', 30000000, 3),
+('49ers QB', 30000000, 4),
 ('Patriots TE', 5000000, 1),
-('Bills TE', 5000000, 2),
-('Dolphins TE', 5000000, 3),
-('Jets TE', 5000000, 4),
+('Colts TE', 5000000, 2),
+('Chiefs TE', 5000000, 3),
+('49ers TE', 5000000, 4),
 ('Patriots WR', 15000000, 1),
-('Bills WR', 15000000, 2),
-('Dolphins WR', 15000000, 3),
-('Jets WR', 15000000, 4),
+('Colts WR', 15000000, 2),
+('Chiefs WR', 15000000, 3),
+('49ers WR', 15000000, 4),
 ('Patriots RB', 10000000, 1),
-('Bills RB', 10000000, 2),
-('Dolphins RB', 10000000, 3),
-('Jets RB', 10000000, 4);
+('Colts RB', 10000000, 2),
+('Chiefs RB', 10000000, 3),
+('49ers RB', 10000000, 4);
 
 INSERT INTO employees (first_name, last_name, roles_id, manager_id)
 VALUES

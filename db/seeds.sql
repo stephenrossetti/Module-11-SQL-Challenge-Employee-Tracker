@@ -5,7 +5,7 @@ VALUES
 ('Chiefs'),
 ('49ers');
 
-INSERT INTO roles (role_name, role_salary, department_id)
+INSERT INTO roles (title, salary, department_id)
 VALUES
 ('Patriots QB', 30000000, 1),
 ('Colts QB', 30000000, 2),

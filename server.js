@@ -20,21 +20,21 @@ db.connect((err) => {
 });
 
 cfonts.say('NFL Company!', {
-    font: 'block',              // define the font face
-    align: 'left',              // define text alignment
-    colors: ['system'],         // define all colors
-    background: 'transparent',  // define the background color, you can also use `backgroundColor` here as key
-    letterSpacing: 1,           // define letter spacing
-    lineHeight: 1,              // define the line height
-    space: true,                // define if the output text should have empty lines on top and on the bottom
-    maxLength: '0',             // define how many character can be on one line
-    gradient: false,            // define your two gradient colors
-    independentGradient: false, // define if you want to recalculate the gradient for each new line
-    transitionGradient: false,  // define if this is a transition between colors directly
-    env: 'node'                 // define the environment cfonts is being executed in
+    font: 'block',
+    align: 'left',
+    colors: ['system'],
+    background: 'transparent',
+    letterSpacing: 1,
+    lineHeight: 1,
+    space: true,
+    maxLength: '0',
+    gradient: false,
+    independentGradient: false,
+    transitionGradient: false,
+    env: 'node'
 });
 
-let init = async () => {
+const init = async () => {
     const answer = await inquirer.prompt(initialQuestions);
     switch (answer.choice) {
         case 'View Employees':
@@ -72,6 +72,7 @@ let init = async () => {
 
 const exit = () => {
     console.log('Exiting');
+    db.end();
     process.exit();
 }
 
@@ -128,7 +129,6 @@ const addNewDepartment = () => {
                 if (err) throw err;
                 console.log('New department added!');
                 viewDepartments();
-                init();
             });
         });
 };
@@ -259,7 +259,6 @@ function addNewRole() {
                         if (err) throw err;
                         console.log('New role added!');
                         viewRoles();
-                        init();
                     });
             });
     });

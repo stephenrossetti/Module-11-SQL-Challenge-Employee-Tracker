@@ -10,12 +10,15 @@ Create new repository and begin code from scratch. Set up .gitignore, package.js
 
 ## Mock-Up
 
-![alt text](https://github.com/stephenrossetti/Module-11-Express.Js-Note-Tracker/blob/main/public/assets/images/Mockup1.png)
-![alt text](https://github.com/stephenrossetti/Module-11-Express.Js-Note-Tracker/blob/main/public/assets/images/Mockup2.png)
-![alt text](https://github.com/stephenrossetti/Module-11-Express.Js-Note-Tracker/blob/main/public/assets/images/Mockup3.png)
-![alt text](https://github.com/stephenrossetti/Module-11-Express.Js-Note-Tracker/blob/main/public/assets/images/Mockup4.png)
-![alt text](https://github.com/stephenrossetti/Module-11-Express.Js-Note-Tracker/blob/main/public/assets/images/Mockup5.png)
-![alt text](https://github.com/stephenrossetti/Module-11-Express.Js-Note-Tracker/blob/main/public/assets/images/Mockup6.png)
+![alt text](https://github.com/stephenrossetti/SQL-Challenge-Employee-Tracker/blob/main/assets/Mockup1.png)
+![alt text](https://github.com/stephenrossetti/SQL-Challenge-Employee-Tracker/blob/main/assets/Mockup2.png)
+![alt text](https://github.com/stephenrossetti/SQL-Challenge-Employee-Tracker/blob/main/assets/Mockup3.png)
+![alt text](https://github.com/stephenrossetti/SQL-Challenge-Employee-Tracker/blob/main/assets/Mockup4.png)
+![alt text](https://github.com/stephenrossetti/SQL-Challenge-Employee-Tracker/blob/main/assets/Mockup5.png)
+![alt text](https://github.com/stephenrossetti/SQL-Challenge-Employee-Tracker/blob/main/assets/Mockup6.png)
+![alt text](https://github.com/stephenrossetti/SQL-Challenge-Employee-Tracker/blob/main/assets/Mockup7.png)
+![alt text](https://github.com/stephenrossetti/SQL-Challenge-Employee-Tracker/blob/main/assets/Mockup8.png)
+![alt text](https://github.com/stephenrossetti/SQL-Challenge-Employee-Tracker/blob/main/assets/Mockup9.png)
 
 ## Usage
 

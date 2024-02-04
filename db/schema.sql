@@ -1,3 +1,7 @@
+--Create and use a new database for company
+--Drop if it exists will "reset" database
+--Create tables based on Challenge criteria and naming convention
+--Foreign keys will allow for "linking" between tables
 DROP DATABASE IF EXISTS company_db;
 CREATE DATABASE company_db;
 
@@ -26,6 +30,7 @@ CREATE TABLE employees (
     FOREIGN KEY (manager_id) REFERENCES employees(id)
 );
 
+--Sources seeds.sql here will save step in command-line
 SOURCE seeds.sql;
 
 

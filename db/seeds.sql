@@ -1,3 +1,6 @@
+--Create "seeds" or data to walkthrough command-line navigator
+--Insert the values into the tables
+
 INSERT INTO departments (department_name)
 VALUES
 ('Patriots'),

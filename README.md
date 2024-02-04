@@ -28,4 +28,4 @@ To review the code, open the GitHub repository here: https://github.com/stephenr
 
 ## Credits
 
-Utilized stackoverflow for set up of new employee functionality (specifically, mapping new role and manager to table). Utilized Module-12 activities for examples of code.
+Utilized stackoverflow for set up of new employee functionality (specifically, mapping new role and manager to table). Utilized Module-12 activities for examples of code. Cfonts from github.

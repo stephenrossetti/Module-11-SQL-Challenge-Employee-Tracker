@@ -22,7 +22,7 @@ Create new repository and begin code from scratch. Set up .gitignore, package.js
 
 ## Usage
 
-To view the walkthrough, open the HTML link here: https://drive.google.com/file/d/13XbN4QoyTTfY6ttGJUsSbKYOTc8wF06d/view.
+To view the walkthrough, open the HTML link here: https://drive.google.com/file/d/1UKzp6wDt7Con_gm9E5rFRI5ihtZNHamA/view.
 
 To review the code, open the GitHub repository here: https://github.com/stephenrossetti/SQL-Challenge-Employee-Tracker.
 
